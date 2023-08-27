@@ -21,7 +21,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - vidly:/data/db
+      - docker-react-node:/data/db
 
 volumes:
-  vidly:
+  docker-react-node:
