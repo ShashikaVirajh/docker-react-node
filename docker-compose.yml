@@ -21,7 +21,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - docker-react-node:/data/db
+      - vol-react-node:/data/db
 
 volumes:
-  docker-react-node:
+  vol-react-node:
