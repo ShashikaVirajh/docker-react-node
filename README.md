@@ -14,7 +14,6 @@
     - [Volumes](#volumes)
   - [Project Architecture](#project-architecture)
     - [Backend Dockerfile](#backend-dockerfile)
-- [Your Backend Dockerfile content](#your-backend-dockerfile-content)
     - [Frontend Dockerfile](#frontend-dockerfile)
 - [Your Frontend Dockerfile content](#your-frontend-dockerfile-content)
     - [Docker-Compose File](#docker-compose-file)
@@ -65,9 +64,22 @@ Volumes are used for data persistence.
 ### Backend Dockerfile
 Sets up the Node.js environment and prepares your backend code for running.
 
-\`\`\`Dockerfile
-# Your Backend Dockerfile content
-\`\`\`
+\```
+FROM node:18-alpine3.18
+
+RUN addgroup app && adduser -S -G app app
+USER app
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+EXPOSE 3001
+
+CMD ["npm", "start"]
+\```
+
 
 ### Frontend Dockerfile
 Sets up the Node.js environment optimized for running your React app.
