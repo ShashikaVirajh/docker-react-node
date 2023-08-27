@@ -9,7 +9,6 @@ const root = ReactDOM.createRoot(container);
 
 root.render(
   <React.StrictMode>
-  ado ado
     <App />
   </React.StrictMode>
 );
